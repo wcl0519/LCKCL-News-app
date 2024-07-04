@@ -2,3 +2,4 @@ streamlit_extras
 easyocr
 opencv-python
 numpy
+emoji
