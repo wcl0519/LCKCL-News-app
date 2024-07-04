@@ -5,3 +5,4 @@ numpy
 emoji
 pyttsx3
 comtypes
+Foundation
