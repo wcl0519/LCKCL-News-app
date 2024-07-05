@@ -10,8 +10,9 @@ import pyttsx3
 import time
 
 # Initialize sound output driver
-# engine = pyttsx3.init(driverName="nsss")  # Use the Microsoft Speech Platform: sapi5
-engine = pyttsx3.init(driverName="espeak")  # Use the Microsoft Speech Platform: sapi5
+# engine = pyttsx3.init(driverName="nsss")  # mac
+# engine = pyttsx3.init(driverName="sapi5")  # winows
+engine = pyttsx3.init(driverName="espeak")  # linux version
 
 voices = engine.getProperty('voices')
 
