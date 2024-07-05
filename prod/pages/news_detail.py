@@ -16,11 +16,12 @@ engine = pyttsx3.init(driverName="espeak")  # linux version
 
 voices = engine.getProperty('voices')
 
-for voice in voices:
-	if 'canton' in voice.id.split('\\')[-1]:
-		engine.setProperty('voice', voice.id)
-		print('voice.id',voice.id)
-		break
+# for voice in voices:
+# 	if 'ZH-HK' in voice.id.split('\\')[-1]:
+# 		engine.setProperty('voice', voice.id)
+# 		break
+
+engine.setProperty('voice', 'cantonese')
 
 engine.setProperty('rate',150 )
 engine.setProperty('volume',1)
