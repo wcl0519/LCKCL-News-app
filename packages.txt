@@ -1,4 +1,4 @@
 libespeak1
 alsa-utils
-alsa
+alsa-tools
 libgl1
