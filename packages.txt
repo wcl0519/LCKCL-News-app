@@ -1,8 +1,6 @@
 libespeak1
 alsa-utils
 alsa-tools
-alsa-firmware
-alsa-lib
 alsa-oss
-alsamixer
+libasound2-dev
 libgl1
