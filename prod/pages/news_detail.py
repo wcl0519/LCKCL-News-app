@@ -12,7 +12,7 @@ from gtts import gTTS
 import io
 
 def speak_cantonese(text):
-    tts = gTTS(text=text, slow=True)
+    tts = gTTS(text=text, lang='cantonese', slow=True)
     mp3_file = io.BytesIO()
     tts.write_to_fp(mp3_file)
     return mp3_file
