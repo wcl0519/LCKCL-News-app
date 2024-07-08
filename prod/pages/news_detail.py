@@ -10,7 +10,8 @@ import pyttsx3
 import time
 from gtts import gTTS
 import io
-
+supported_languages = gTTS.langs
+print(supported_languages)
 def speak_cantonese(text):
     tts = gTTS(text=text, lang='cantonese', slow=True)
     mp3_file = io.BytesIO()
