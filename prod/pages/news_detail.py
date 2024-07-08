@@ -146,6 +146,7 @@ def mod_display():
 			"""
 			, height=0, width=0
 		)
+
 		# st.page_link(page= title_url, label= title)
 		# st.markdown(title_url)
 		
