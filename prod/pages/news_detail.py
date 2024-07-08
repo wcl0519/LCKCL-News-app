@@ -135,13 +135,18 @@ def mod_display():
 		st.info(title)
 		# engine.say(title)
 		components.html(
-			f"""
+			"""
 			<script>
-			var msg = new SpeechSynthesisUtterance("{title}");
-			msg.rate = 0.75;
-			msg.volume = 1;
-			msg.lang = 'zh-HK';
-			window.speechSynthesis.speak(msg);
+			async function speak(text) {
+				const message = new SpeechSynthesisUtterance(text);
+				message.rate = 0.75;
+				message.volume = 1;
+				message.lang = 'zh-HK';
+				window.speechSynthesis.speak(message);
+			}
+			"""
+			"""
+			speak("{title}");
 			</script>
 			"""
 			, height=0, width=0
