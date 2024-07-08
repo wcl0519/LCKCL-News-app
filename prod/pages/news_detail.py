@@ -137,16 +137,27 @@ def mod_display():
 		components.html(
 			"""
 			<script>
-			async function speak(text) {
-				const message = new SpeechSynthesisUtterance(text);
-				message.rate = 0.75;
-				message.volume = 1;
-				message.lang = 'zh-HK';
-				window.speechSynthesis.speak(message);
-			}
-			"""
-			"""
-			speak("{title}");
+            function speak(text) {{
+                return new Promise(function(resolve, reject) {{
+                    const message = new SpeechSynthesisUtterance(text);
+                    message.rate = 0.75;
+                    message.volume = 1;
+                    message.lang = 'zh-HK';
+                    message.onend = function() {{
+                        resolve();
+                    };
+                    window.speechSynthesis.speak(message);
+                }});
+            }}
+
+            async function speakAndDisplayNextLine(text) {{
+                await speak(text);
+                // Add code to display the next line title here
+            }}
+            """
+            f"""
+            speakAndDisplayNextLine("{title}");
+
 			</script>
 			"""
 			, height=0, width=0
