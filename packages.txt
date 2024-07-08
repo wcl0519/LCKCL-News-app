@@ -4,4 +4,3 @@ alsa-tools
 alsa-oss
 libasound2-dev
 libgl1
-gTTs
