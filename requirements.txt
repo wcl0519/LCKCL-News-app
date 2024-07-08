@@ -6,4 +6,3 @@ emoji
 pyttsx3
 comtypes
 Foundation
-gTTs

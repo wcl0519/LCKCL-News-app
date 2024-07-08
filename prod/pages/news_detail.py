@@ -8,15 +8,7 @@ import emoji
 
 import pyttsx3
 import time
-from gtts import gTTS
-import io
-supported_languages = gTTS.langs
-print(supported_languages)
-def speak_cantonese(text):
-    tts = gTTS(text=text, lang='cantonese', slow=True)
-    mp3_file = io.BytesIO()
-    tts.write_to_fp(mp3_file)
-    return mp3_file
+import streamlit.components.v1 as components
 
 # Initialize sound output driver
 # engine = pyttsx3.init(driverName="nsss")  # mac
@@ -141,10 +133,18 @@ def mod_display():
 		#print('title_url',title_url)
 		# 
 		st.info(title)
-		audio_file = speak_cantonese(title)
-		st.audio(audio_file, format='audio/mp3', start_time=0)
-
 		# engine.say(title)
+		components.html(
+			f"""
+			<script>
+			var msg = new SpeechSynthesisUtterance("{title}");
+			msg.rate = 0.75;
+			msg.volume = 1;
+			window.speechSynthesis.speak(msg);
+			</script>
+			"""
+			, height=0, width=0
+		)
 		# st.page_link(page= title_url, label= title)
 		# st.markdown(title_url)
 		
