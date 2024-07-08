@@ -46,7 +46,7 @@ if video_capture is not None:
 
         
     # Perform OCR on the captured frame
-    reader = easyocr.Reader(['ch_sim'])
+    reader = easyocr.Reader(['ch_tra'])
     result = reader.readtext(image_cv)
     
     
