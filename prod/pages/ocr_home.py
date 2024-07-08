@@ -79,6 +79,7 @@ if video_capture is not None:
 			var msg = new SpeechSynthesisUtterance("{r[1]}");
 			msg.rate = 0.75;
 			msg.volume = 1;
+            msg.lang = 'zh-HK';
 			window.speechSynthesis.speak(msg);
 			</script>
 			"""

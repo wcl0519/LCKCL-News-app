@@ -140,6 +140,7 @@ def mod_display():
 			var msg = new SpeechSynthesisUtterance("{title}");
 			msg.rate = 0.75;
 			msg.volume = 1;
+			msg.lang = 'zh-HK';
 			window.speechSynthesis.speak(msg);
 			</script>
 			"""
