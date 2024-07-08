@@ -8,23 +8,31 @@ import emoji
 
 import pyttsx3
 import time
+from gtts import gTTS
+import io
+
+def speak_cantonese(text):
+    tts = gTTS(text=text, lang='zh-HK', slow=True)
+    mp3_file = io.BytesIO()
+    tts.write_to_fp(mp3_file)
+    return mp3_file
 
 # Initialize sound output driver
 # engine = pyttsx3.init(driverName="nsss")  # mac
 # engine = pyttsx3.init(driverName="sapi5")  # winows
-engine = pyttsx3.init(driverName="espeak")  # linux version
+# engine = pyttsx3.init(driverName="espeak")  # linux version
 
-voices = engine.getProperty('voices')
+# voices = engine.getProperty('voices')
 
 # for voice in voices:
 # 	if 'ZH-HK' in voice.id.split('\\')[-1]:
 # 		engine.setProperty('voice', voice.id)
 # 		break
 
-engine.setProperty('voice', 'cantonese')
+# engine.setProperty('voice', 'cantonese')
 
-engine.setProperty('rate',150 )
-engine.setProperty('volume',1)
+# engine.setProperty('rate',150 )
+# engine.setProperty('volume',1)
 # engine.say('你好，你好嗎?')
 # engine.runAndWait()
 
@@ -132,15 +140,18 @@ def mod_display():
 		#print('title_url',title_url)
 		# 
 		st.info(title)
-		engine.say(title)
+		audio_file = speak_cantonese(title)
+		st.audio(audio_file, format='audio/mp3', start_time=0)
+
+		# engine.say(title)
 		# st.page_link(page= title_url, label= title)
 		# st.markdown(title_url)
 		
-		engine.runAndWait()
+		# engine.runAndWait()
 		time.sleep(2)
 
-	engine.stop()
-	engine.runAndWait()
+	# engine.stop()
+	# engine.runAndWait()
 	# engine.close()
 
 def Main():
