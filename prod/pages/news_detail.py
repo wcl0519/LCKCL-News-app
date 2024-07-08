@@ -137,23 +137,19 @@ def mod_display():
 		components.html(
 			"""
 			<script>
-            function speak(text) {{
-                return new Promise(function(resolve, reject) {{
+            function speak(text) {
+                return new Promise(function(resolve, reject) {
                     const message = new SpeechSynthesisUtterance(text);
                     message.rate = 0.75;
                     message.volume = 1;
                     message.lang = 'zh-HK';
-                    message.onend = function() {{
-                        resolve();
-                    };
                     window.speechSynthesis.speak(message);
-                }});
-            }}
+                });
+            }
 
-            async function speakAndDisplayNextLine(text) {{
+            async function speakAndDisplayNextLine(text) {
                 await speak(text);
-                // Add code to display the next line title here
-            }}
+            }
             """
             f"""
             speakAndDisplayNextLine("{title}");
